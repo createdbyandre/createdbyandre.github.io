@@ -1,11 +1,11 @@
 // Your web app's Firebase configuration (ENTER YOUR FIREBASE CONFIGURATION DETAILS)
 var firebaseConfig = {
-    apiKey: "AIzaSyCkVN4LzfWhjtBlR0JtLwWADnqNX-wV0ek",
-    authDomain: "nonkuy-movie.firebaseapp.com",
-    projectId: "nonkuy-movie",
-    storageBucket: "nonkuy-movie.appspot.com",
-    messagingSenderId: "1028577477155",
-    appId: "1:1028577477155:web:566243c61b5e702c3aa796"
+    apiKey: "AIzaSyCt-06uIR9YjhJucSPvyiEUFIEE6zWvc2U",
+    authDomain: "createdbyandre-4d3ac.firebaseapp.com",
+    projectId: "createdbyandre-4d3ac",
+    storageBucket: "createdbyandre-4d3ac.appspot.com",
+    messagingSenderId: "434992977239",
+    appId: "1:434992977239:web:36551920f5b59e1e935a12",
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);

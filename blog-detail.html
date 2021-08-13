@@ -1,3 +1,66 @@
+<style>
+     .download-container{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.download-btn{
+  position: relative;
+  background: #4285F4;
+  color: #fff;
+  width: 260px;
+  padding: 18px 0;
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: 400;
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 0 5px 25px rgba(1 1 1 / 15%);
+  transition: background 0.3s ease;
+}
+
+.download-btn:hover{
+  background: #2874F3;
+}
+
+.download-btn i{
+  margin-left: 5px;
+}
+
+.countdown{
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.countdown span{
+  color: #0693F6;
+  font-size: 1.5em;
+  font-weight: 800;
+}
+
+.pleaseWait-text{
+  font-size: 1.1em;
+  font-weight: 600;
+  display: none;
+}
+
+.manualDownload-text{
+  font-size: 1.1em;
+  font-weight: 600;
+  display: none;
+}
+
+.manualDownload-link{
+  color: #0693F6;
+  font-weight: 800;
+  text-decoration: none;
+}
+</style>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,7 +106,7 @@ http://www.templatemo.com/tm-509-hydro
                     </button>
 
                     <!-- lOGO TEXT HERE -->
-                    <a href="index.html" class="navbar-brand">Hydro</a>
+                    <a href="index.html" class="navbar-brand">Createdbyandre</a>
                </div>
 
                <!-- MENU LINKS -->
@@ -101,7 +164,7 @@ http://www.templatemo.com/tm-509-hydro
 
                               <p>Vivamus quis velit sed ante suscipit aliquam nec sed ex. Maecenas porta leo at mi suscipit congue. Donec ipsum metus, tristique eu leo ut, luctu Vivamus sit amet purus nec risus mollis tempor.</p>
 
-                              <div class="blog-ads">
+                              <div class="blog-ads" id="dwn">
                                    <h4>Blog Sample Advertising</h4>
                               </div>
                               
@@ -111,11 +174,55 @@ http://www.templatemo.com/tm-509-hydro
                                    <li>Wordpress Themes augue vulputate voluptate neque, curabitur dolor vitae massa.</li>
                               </ul>
                               <p>Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet, wisi risus purus augue vulputate voluptate neque, curabitur dolor libero sodales vitae elit massa.</p>
+
+                              <div class="download-container" style="text-align: center;">
+                                   <a href="#dwn" class="download-btn">Download Files</a>
+                                   <div class="countdown"></div>
+                                   <div class="pleaseWait-text">Please wait..</div>
+                                   <div class="manualDownload-text">
+                                     If the download didn't start automatically, <a href="" class="manualDownload-link">click here.</a>
+                                   </div>
+                                 </div>
+                             
+                                 <script type="text/javascript">
+                                 const downloadBtn = document.querySelector(".download-btn");
+                                 const countdown = document.querySelector(".countdown");
+                                 const pleaseWaitText = document.querySelector(".pleaseWait-text");
+                                 const manualDownloadText = document.querySelector(".manualDownload-text");
+                                 const manualDownloadLink = document.querySelector(".manualDownload-link");
+                                 var timeLeft = 10;
+                             
+                                 downloadBtn.addEventListener("click", () => {
+                                   downloadBtn.style.display = "none";
+                                   countdown.innerHTML = "Download will begin automatically in <span>" + timeLeft + "</span> seconds."; //for quick start of countdown
+                             
+                                   var downloadTimer = setInterval(function timeCount(){
+                                     timeLeft -= 1;
+                                     countdown.innerHTML = "Download will begin automatically in <span>" + timeLeft + "</span> seconds.";
+                             
+                                     if(timeLeft <= 0){
+                                       clearInterval(downloadTimer);
+                                       pleaseWaitText.style.display = "block";
+                                       let download_href = ""; //enter the downloadable file link URL here
+                                       window.location.href = download_href;
+                                       manualDownloadLink.href = download_href;
+                             
+                                       setTimeout(() => {
+                                         pleaseWaitText.style.display = "none";
+                                         manualDownloadText.style.display = "block";
+                                       }, 4000);
+                                     }
+                                   }, 1000);
+                                 });
+                                 </script>
+
                               <div class="blog-social-share">
                                    <h4>Share this article</h4>
+                                   <!--TEST--
                                    <a href="https://www.facebook.com/templatemo" class="btn btn-primary"><i class="fa fa-facebook"></i>facebook</a>
                                    <a href="#" class="btn btn-success"><i class="fa fa-twitter"></i>twitter</a>
                                    <a href="#" class="btn btn-danger"><i class="fa fa-google-plus"></i>google plus</a>
+                                   <!--TEST-->
                               </div>
                          </div>
                     </div>
@@ -208,33 +315,38 @@ http://www.templatemo.com/tm-509-hydro
 
                                    <div class="col-md-12 col-sm-12">
                                         <div class="modal-title">
-                                             <h2>Hydro Co</h2>
+                                             <h2>Createdbyandre</h2>
                                         </div>
 
                                         <!-- NAV TABS -->
                                         <ul class="nav nav-tabs" role="tablist">
-                                             <li class="active"><a href="#sign_up" aria-controls="sign_up" role="tab" data-toggle="tab">Create an account</a></li>
-                                             <li><a href="#sign_in" aria-controls="sign_in" role="tab" data-toggle="tab">Sign In</a></li>
+                                             <li class="active"><a href="#sign_up" aria-controls="sign_up" role="tab" data-toggle="tab">Buat Akun</a></li>
+                                             <li><a href="#sign_in" aria-controls="sign_in" role="tab" data-toggle="tab">Login</a></li>
                                         </ul>
 
                                         <!-- TAB PANES -->
                                         <div class="tab-content">
                                              <div role="tabpanel" class="tab-pane fade in active" id="sign_up">
-                                                  <form action="#" method="post">
+                                                  <form action="1. Login/sign-up.html">
+                                                       <!--Gapake--
                                                        <input type="text" class="form-control" name="name" placeholder="Name" required>
                                                        <input type="telephone" class="form-control" name="telephone" placeholder="Telephone" required>
                                                        <input type="email" class="form-control" name="email" placeholder="Email" required>
                                                        <input type="password" class="form-control" name="password" placeholder="Password" required>
-                                                       <input type="submit" class="form-control" name="submit" value="Submit Button">
+                                                       <!--Gapake-->
+                                                       <input type="submit" class="form-control" value="Daftar Akun">
+                                                  </a>
                                                   </form>
                                              </div>
 
                                              <div role="tabpanel" class="tab-pane fade in" id="sign_in">
-                                                  <form action="#" method="post">
+                                                  <form action="1. Login/index.html">
+                                                       <!--Gapake--
                                                        <input type="email" class="form-control" name="email" placeholder="Email" required>
                                                        <input type="password" class="form-control" name="password" placeholder="Password" required>
-                                                       <input type="submit" class="form-control" name="submit" value="Submit Button">
-                                                       <a href="https://www.facebook.com/templatemo">Forgot your password?</a>
+                                                       <!--Gapake-->
+                                                       <input type="submit" class="form-control" name="submit" value="Login">
+                                                       <a href="1. Login/reset.html">Forgot your password?</a>
                                                   </form>
                                              </div>
                                         </div>
