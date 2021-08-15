@@ -1,3 +1,113 @@
+<style>
+.alert_box,
+.show_button{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% , -50%);
+}
+.show_button{
+  height: 55px;
+  padding: 0 30px;
+  font-size: 20px;
+  font-weight: 400;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  color: #fff;
+  line-height: 55px;
+  background: #2980b9;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+.show_button:hover{
+  background: #2573a7;
+}
+.background{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.alert_box{
+  padding: 30px;
+  display: flex;
+  background: #fff;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 450px;
+  width: 100%;
+  position: fixed;
+  border-radius: 5px;
+  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50% , -50%) scale(0.97);
+  transition: all 0.3s ease;
+}
+#check:checked ~ .alert_box{
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50% , -50%) scale(1);
+}
+#check:checked ~ .background{
+  opacity: 1;
+  pointer-events: auto;
+}
+#check{
+  display: none;
+}
+.alert_box .icon{
+
+
+  font-size: 50px;
+}
+.alert_box header{
+  font-size: 35px;
+  font-weight: 500;
+  margin: 10px 0;
+}
+.alert_box p{
+  font-size: 20px;
+}
+.alert_box .btns{
+  margin-top: 20px;
+}
+.btns label{
+  display: inline-flex;
+  height: 55px;
+  padding: 0 30px;
+  font-size: 20px;
+  font-weight: 400;
+  cursor: pointer;
+  line-height: 55px;
+  outline: none;
+  margin: 0 10px;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+.btns label:first-child{
+  background: #2980b9;
+}
+.btns label:first-child:hover{
+  background: #2573a7;
+}
+.btns label:last-child{
+  background: #f23b26;
+}
+.btns label:last-child:hover{
+  background: #d9210d;
+}
+</style>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +127,8 @@ http://www.templatemo.com/tm-509-hydro
      <link rel="stylesheet" href="css/bootstrap.min.css">
      <link rel="stylesheet" href="css/magnific-popup.css">
      <link rel="stylesheet" href="css/font-awesome.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
      <!-- MAIN CSS -->
      <link rel="stylesheet" href="css/templatemo-style.css">
@@ -160,6 +272,7 @@ http://www.templatemo.com/tm-509-hydro
           </div>
      </section>
 
+     
 
      <!-- BLOG -->
      <section id="blog" data-stellar-background-ratio="0.5">
@@ -177,16 +290,44 @@ http://www.templatemo.com/tm-509-hydro
                          <!-- BLOG THUMB -->
                          <div class="media blog-thumb">
                               <div class="media-object media-left">
-                                   <a href="blog-detail.html"><img src="images/0. andre.png" class="img-responsive" alt=""></a>
+                                   <img src="images/0. andre.png" class="img-responsive" alt=""></a>
                               </div>
                               <div class="media-body blog-info">
                                    <small><i class="fa fa-clock-o"></i> Agustus 15, 2021</small>
                                    <h3><a href="blog-detail.html">Redesign Nimo Tv</a></h3>
-                                   <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
+                                   <p>Redesign Aplikasi Nimo Tv.</p>
+                                   
+                                   <!-- Button trigger modal --
+                                   <a href="">
+                                   <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn section-btn">
+                                   Download Gambar
+                                   </button></a>
+                                   <!-- Button trigger modal -->
+   
+                                        <input type="checkbox" id="check">
+                                        <label class="btn section-btn" for="check">Download Image</label>
+                                        <div class="background"></div>
+                                        <div class="alert_box">
+                                          <div class="icon">
+                                             <i class="far fa-bell"></i>
+                                          </div>
+                                          <header>Alert</header>
+                                          <p>Design Segera Hadir</p>
+                                          <div class="btns">
+                                            <label for="check">Close</label>
+                                          </div>
+                                        </div>
+
+                                   <!--Button--
                                    <a href="0. Blog/1. Redesign Nimo Tv.html" class="btn section-btn" data-toggle="modal" data-target="#modal-form">Download Image</a>
+                                   <!--Button-->
                               </div>
                          </div>
                     </div>
+                   </div>
+
+
+
 
                     <div class="col-md-6 col-sm-6">
                          <!-- BLOG THUMB --
@@ -510,11 +651,8 @@ http://www.templatemo.com/tm-509-hydro
      </section>
 
 
-
-
-     
-
      <!-- SCRIPTS -->
+     <script src="js/popup-blog.js"></script>
      <script src="js/jquery.js"></script>
      <script src="js/bootstrap.min.js"></script>
      <script src="js/jquery.stellar.min.js"></script>
