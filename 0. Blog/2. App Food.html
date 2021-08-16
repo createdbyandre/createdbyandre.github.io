@@ -214,9 +214,9 @@ header .close:hover{
 .img-slider{
   position: relative;
   width: 800px;
-  height: 500px;
+  height: 400px;
   margin: 10px;
-  background: #1D212B;
+  background: #1d242b;
 }
 
 .img-slider .slide{
@@ -265,22 +265,22 @@ header .close:hover{
   z-index: 2;
   position: absolute;
   display: flex;
-  bottom: 30px;
+  bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .img-slider .navigation .btn{
-  background: rgba(255, 255, 255, 0.5);
+  background: #fff;
   width: 12px;
   height: 12px;
   margin: 10px;
-  border-radius: 50%;
+  border-radius: 10%;
   cursor: pointer;
 }
 
 .img-slider .navigation .btn.active{
-  background: #2696E9;
+  background: #ff0000;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 }
 
@@ -475,61 +475,6 @@ http://www.templatemo.com/tm-509-hydro
                            <div class="btn"></div>
                          </div>
                        </div>
-                   
-                       <script type="text/javascript">
-                       var slides = document.querySelectorAll('.slide');
-                       var btns = document.querySelectorAll('.btn');
-                       let currentSlide = 1;
-                   
-                       // Javascript for image slider manual navigation
-                       var manualNav = function(manual){
-                         slides.forEach((slide) => {
-                           slide.classList.remove('active');
-                   
-                           btns.forEach((btn) => {
-                             btn.classList.remove('active');
-                           });
-                         });
-                   
-                         slides[manual].classList.add('active');
-                         btns[manual].classList.add('active');
-                       }
-                   
-                       btns.forEach((btn, i) => {
-                         btn.addEventListener("click", () => {
-                           manualNav(i);
-                           currentSlide = i;
-                         });
-                       });
-                   
-                       // Javascript for image slider autoplay navigation
-                       var repeat = function(activeClass){
-                         let active = document.getElementsByClassName('active');
-                         let i = 1;
-                   
-                         var repeater = () => {
-                           setTimeout(function(){
-                             [...active].forEach((activeSlide) => {
-                               activeSlide.classList.remove('active');
-                             });
-                   
-                           slides[i].classList.add('active');
-                           btns[i].classList.add('active');
-                           i++;
-                   
-                           if(slides.length == i){
-                             i = 0;
-                           }
-                           if(i >= slides.length){
-                             return;
-                           }
-                           repeater();
-                         }, 10000);
-                         }
-                         repeater();
-                       }
-                       repeat();
-                       </script>
                              <!-- BLOG DETAIL -->
                              <h2>Design App Food</h2>
                              <p>App Food Adalah Aplikasi Yang Untuk Memesanan Berbagai Macam Makanan Dan Minuman.</p>
@@ -822,6 +767,61 @@ http://www.templatemo.com/tm-509-hydro
              }, 3000);
            }
          }
+
+
+
+                       var slides = document.querySelectorAll('.slide');
+                       var btns = document.querySelectorAll('.btn');
+                       let currentSlide = 1;
+                   
+                       // Javascript for image slider manual navigation
+                       var manualNav = function(manual){
+                         slides.forEach((slide) => {
+                           slide.classList.remove('active');
+                   
+                           btns.forEach((btn) => {
+                             btn.classList.remove('active');
+                           });
+                         });
+                   
+                         slides[manual].classList.add('active');
+                         btns[manual].classList.add('active');
+                       }
+                   
+                       btns.forEach((btn, i) => {
+                         btn.addEventListener("click", () => {
+                           manualNav(i);
+                           currentSlide = i;
+                         });
+                       });
+                   
+                       // Javascript for image slider autoplay navigation
+                       var repeat = function(activeClass){
+                         let active = document.getElementsByClassName('active');
+                         let i = 1;
+                   
+                         var repeater = () => {
+                           setTimeout(function(){
+                             [...active].forEach((activeSlide) => {
+                               activeSlide.classList.remove('active');
+                             });
+                   
+                           slides[i].classList.add('active');
+                           btns[i].classList.add('active');
+                           i++;
+                   
+                           if(slides.length == i){
+                             i = 0;
+                           }
+                           if(i >= slides.length){
+                             return;
+                           }
+                           repeater();
+                         }, 7000);
+                         }
+                         repeater();
+                       }
+                       repeat();
        </script>
 
     <!-- SCRIPTS -->
