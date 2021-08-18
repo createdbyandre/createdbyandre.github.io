@@ -25,7 +25,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         }
     } else {
         if(window.location.pathname === '/home.html'){
-            window.location = 'index-2.html';
+            window.location = 'index.html';
         }
     }
 });
@@ -82,7 +82,7 @@ if(reset_form){
         .then((userCredential) => {
             message.style.display = 'block';
             message_value.innerText = 'Email has been send!';
-            window.location = 'index-2.html';
+            window.location = 'index.html';
         })
         .catch((error) => {
             message.style.display = 'block';
@@ -98,7 +98,7 @@ if(reset_form){
 if(sign_out){
     sign_out.addEventListener('click', function(e) {
         firebase.auth().signOut().then(() => {
-            window.location = 'index-2.html';
+            window.location = 'index.html';
         }).catch((error) => {
         // An error happened.
         });
