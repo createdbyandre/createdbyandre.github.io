@@ -17,7 +17,18 @@ var message = document.querySelector('#messageDiv');
 var message_value = document.querySelector('.message');
 var sign_out = document.querySelector("#signOut");
 
-
+// check if user is logged in or not
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        if(window.location.pathname != '/home.html'){
+            window.location = 'home.html';
+        }
+    } else {
+        if(window.location.pathname === '/home.html'){
+            window.location = 'index.html';
+        }
+    }
+});
 
 // user login
 if(form){
